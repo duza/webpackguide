@@ -1,0 +1,17 @@
+{
+  "name": "WebpackGuide",
+  "version": "1.0.0",
+  "description": "This is my attempt to understand how to configure a webpack with help of [easy guide for webpack](https://codeburst.io/easy-guide-for-webpack-2-0-from-scratch-fe508a3ce44e)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["webpack", "guide", "easy"],
+  "author": "duza",
+  "homepage": "https://github.com/duza/webpackguide",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.14.0",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
