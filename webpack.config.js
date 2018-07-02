@@ -6,3 +6,6 @@ let config = {
     filename: 'output.js'
   }
 }
+
+module.exports = config;
+
