@@ -1,6 +1,6 @@
 require('./styles.scss');
 
-document.write("hello, webpack! I'm watching for changes");
+document.write("hello, webpack! I'm watching for changes. Add changes for check hot reload");
 const dress = () => {
   document.write('.<br> I like your dress.<br>');
 }
