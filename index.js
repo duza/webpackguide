@@ -1,1 +1,1 @@
-document.write("hello, webpack!");
+document.write("hello, webpack! I'm watching for changes");

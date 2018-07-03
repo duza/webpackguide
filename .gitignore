@@ -1,2 +1,5 @@
 node_modules/
 tags
+dist/
+package-lock.json
+*.tmp
