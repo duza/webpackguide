@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 let config = {
   entry: './src/index.js',
@@ -46,10 +47,13 @@ module.exports = config;
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.optimization.minimizer.push(
-    new UglifyJsPlugin({
+    new UglifyJsPlugin({ // call the uglify plugin
       test: /\.js($|\?)/i,
       // sourceMap: true
-    })
+    }),
+  );
+  module.exports.plugins.push(
+    new OptimizeCSSAssets() // call the css optimizer (minification)
   );
 }
 
