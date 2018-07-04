@@ -31,10 +31,6 @@ let config = {
   ],
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        test: /\.js($|\?)/i,
-        sourceMap: true
-      })
     ],
   },
   devServer: {
@@ -47,4 +43,13 @@ let config = {
 }
 
 module.exports = config;
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.optimization.minimizer.push(
+    new UglifyJsPlugin({
+      test: /\.js($|\?)/i,
+      // sourceMap: true
+    })
+  );
+}
 
