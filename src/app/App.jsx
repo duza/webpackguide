@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import cat from '../assets/images/cat.jpg';
-import dog from '../assets/images/dog.png';
-import dogs from '../assets/images/dogs.gif';
-import whale from '../assets/images/whale.svg';
+import cat from 'Images/cat.jpg';
+import dog from 'Images/dog.png';
+import dogs from 'Images/dogs.gif';
+import whale from 'Images/whale.svg';
 
 const App = () => {
   return (
