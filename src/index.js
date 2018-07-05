@@ -1,4 +1,4 @@
-require('./styles.scss');
+require('./assets/stylesheets/styles.scss');
 
 document.write("hello, webpack! I'm watching for changes. Add changes for check hot reload");
 const dress = () => {
