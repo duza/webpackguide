@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
@@ -24,11 +25,18 @@ let config = {
         loader: "babel-loader" // use this (babel-core) loader
       },
       {
-        test: /\.scss$/, // files ending with .scss
-        use: ExtractTextWebpackPlugin.extract({ // call our plugin with extract method
-          use: ['css-loader', 'sass-loader'], // use these loaders
-          fallback: 'style-loader' // fallback for any CSS not extracted
-        }) // end extract  
+        test: /\.(sa|sc|c)ss$/, // files ending with .scss
+        // use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({ // call our plugin with extract method and add HMR
+        //  use: ['css-loader', 'sass-loader', 'postcss-loader'], // use these loaders
+        //  fallback: 'style-loader' // fallback for any CSS not extracted
+        // })) // end extract
+        use: [
+          'css-hot-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+          'postcss-loader',
+        ]
       },
       {
         test: /\.jsx$/, // all files with .jsx
@@ -61,7 +69,11 @@ let config = {
     ] // end rules
   },
   plugins: [
-    new ExtractTextWebpackPlugin('styles.css') // call the ExtractTextWebpackPlugin constuctor and name our css file
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFile: "[id].css",
+    })
+    // new ExtractTextWebpackPlugin('styles.css') // call the ExtractTextWebpackPlugin constuctor and name our css file
     // new webpack.optimize.UglifyJsPlugin() // call the uglify plugin
   ],
   optimization: {
